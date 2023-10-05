@@ -10,7 +10,7 @@ RUN apt update \
   && pip3 install online-judge-tools \
   && npm install -g atcoder-cli \
   && acc config default-task-choice all \
-  && echo 'alias oj-test="oj t -c "go run ./main.go" -d ./tests/"' >> ~/.bashrc \
+  && echo 'alias oj-test="oj t -c \"go run ./main.go\" -d ./tests/"' >> ~/.bashrc \
   && echo 'alias add-temp="cp /go/src/template.go ./main.go"' >> ~/.bashrc
 
 
