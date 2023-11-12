@@ -1,53 +1,37 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"strconv"
-	"strings"
 )
 
-func sliceUniq[T comparable](arr []T) []T {
-	unique := make([]T, 0, len(arr))
-	seen := make(map[T]struct{})
-
-	for _, v := range arr {
-		if _, ok := seen[v]; !ok {
-			unique = append(unique, v)
-			seen[v] = struct{}{}
+// 数字がゾロ目かを判定する
+func checkMatchingDice(num int) bool {
+	onePlace := num % 10
+	for ; num > 0; num /= 10 {
+		if num%10 != onePlace {
+			return false
 		}
 	}
-
-	return unique
+	return true
 }
-
-var scanner = bufio.NewScanner(os.Stdin)
 
 func main() {
 	var n int
 	fmt.Scan(&n)
 
 	var count int
-	scanner.Scan()
-	dList := strings.Split(scanner.Text(), " ")
+	// 組み合わせた100*100なので、全通り見る
+	for month := 1; month <= n; month++ {
+		var d int
+		fmt.Scan(&d)
 
-	for i, d := range dList {
-		index := i + 1
-		// 月がゾロ目かどうか
-		indexString := strconv.Itoa(index)
-		indexStringList := strings.Split(indexString, "")
-		indexStringUniqueList := sliceUniq[string](indexStringList)
-		if len(indexStringUniqueList) != 1 {
-			continue
-		}
+		for day := 1; day <= d; day++ {
+			checkNum, _ := strconv.Atoi(strconv.Itoa(month) + strconv.Itoa(day))
+			if checkMatchingDice(checkNum) {
+				count++
+			}
 
-		min := index % 10
-		dNum, _ := strconv.Atoi(d)
-		days := index % 10
-		for days <= dNum {
-			count++
-			days = days*10 + min
 		}
 	}
 
