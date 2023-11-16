@@ -95,6 +95,11 @@ func stringToIntSlice(s string) []int {
 	return r
 }
 
+// 指定の位置の文字を入れ替える
+func replaceCharAtIndex(original string, n int, replacement string) string {
+	return string(original[:n]) + replacement + string(original[n+1:])
+}
+
 // intのsliceを作成する
 func createIntSlice(length int, defaultNum int) []int {
 	sl := make([]int, length)
