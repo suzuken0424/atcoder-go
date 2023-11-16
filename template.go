@@ -5,7 +5,9 @@ import (
 	"fmt"
 	"math"
 	"os"
+	"sort"
 	"strconv"
+	"strings"
 )
 
 var sc = bufio.NewScanner(os.Stdin)
@@ -93,6 +95,20 @@ func stringToIntSlice(s string) []int {
 		r[i] = int(v - baseRune)
 	}
 	return r
+}
+
+// 文字列を昇順にソート
+func sortStringAsc(s string) string {
+	stringSlice := strings.Split(s, "")
+	sort.Strings(stringSlice)
+	return strings.Join(stringSlice, "")
+}
+
+// 文字列を降順にソート
+func sortStringDesc(s string) string {
+	stringSlice := strings.Split(s, "")
+	sort.Sort(sort.Reverse(sort.StringSlice(stringSlice)))
+	return strings.Join(stringSlice, "")
 }
 
 // 指定の位置の文字を入れ替える
