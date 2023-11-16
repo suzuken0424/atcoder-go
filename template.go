@@ -75,6 +75,11 @@ func input2Int() (int, int) {
 	return inputInt(), inputInt()
 }
 
+// 標準入力の3つの数字を取得する
+func input3Int() (int, int, int) {
+	return inputInt(), inputInt(), inputInt()
+}
+
 // 標準入力の文字列を取得する
 func inputString() string {
 	sc.Scan()
