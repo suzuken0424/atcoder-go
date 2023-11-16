@@ -24,6 +24,18 @@ func main() {
 	defer flush()
 }
 
+// intのsliceから最小値を取り出す
+func getMinInt(intSlice []int) int {
+	sort.Sort(sort.IntSlice(intSlice))
+	return intSlice[0]
+}
+
+// intのsliceから最大値を取り出す
+func getMaxInt(intSlice []int) int {
+	sort.Sort(sort.IntSlice(intSlice))
+	return intSlice[len(intSlice)-1]
+}
+
 // スライスの重複削除
 func sliceUniq[T comparable](arr []T) []T {
 	unique := make([]T, 0, len(arr))
