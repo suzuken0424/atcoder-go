@@ -94,6 +94,15 @@ func input3Int() (int, int, int) {
 	return inputInt(), inputInt(), inputInt()
 }
 
+// 任意の数の標準入力を受け取り、intのsliceを返す
+func inputIntSlice(lenNum int) []int {
+	var res []int
+	for i := 0; i < lenNum; i++ {
+		res = append(res, inputInt())
+	}
+	return res
+}
+
 // 標準入力の文字列を取得する
 func inputString() string {
 	sc.Scan()
