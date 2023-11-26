@@ -14,6 +14,7 @@ var sc = bufio.NewScanner(os.Stdin)
 var wtr = bufio.NewWriter(os.Stdout)
 
 const baseRune = 'a'
+const infinite = 1<<62 - 1
 
 func init() {
 	sc.Buffer([]byte{}, math.MaxInt64)
@@ -22,6 +23,22 @@ func init() {
 
 func main() {
 	defer flush()
+
+	n := inputInt()
+	t := float64(inputInt())
+	a := float64(inputInt())
+	minAbs := float64(infinite)
+	var ans int
+
+	for i := 1; i <= n; i++ {
+		h := float64(inputInt())
+		aveAbs := math.Abs(a - (t - h*0.006))
+		if aveAbs < minAbs {
+			minAbs = aveAbs
+			ans = i
+		}
+	}
+	outputResult(ans)
 }
 
 // 小さい方の値を取得する
