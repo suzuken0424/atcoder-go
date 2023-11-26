@@ -24,6 +24,35 @@ func main() {
 	defer flush()
 }
 
+// 絶対値を取得
+func abs(a int) int {
+	if a >= 0 {
+		return a
+	}
+	return -a
+}
+
+// 小さい方の値を取得する
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+// 大きい方の値を取得する
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+// 平方根を取得
+func sqrt(num int) int {
+	return int(math.Sqrt(float64(num)))
+}
+
 // intのsliceから最小値を取り出す
 func getMinInt(intSlice []int) int {
 	sort.Sort(sort.IntSlice(intSlice))
