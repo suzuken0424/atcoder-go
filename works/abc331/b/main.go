@@ -23,6 +23,25 @@ func init() {
 
 func main() {
 	defer flush()
+
+	n := inputInt()
+	s, m, l := input3Int()
+
+	// nは100以下なので、卵をそれぞれ100パックも買えば余裕で足りる
+	// 100 * 100 * 100 = 1000000 = 10^6なので時間は足りる
+	ans := infinite
+	for si := 0; si < 100; si++ {
+		for mi := 0; mi < 100; mi++ {
+			for li := 0; li < 100; li++ {
+				if 6*si+8*mi+12*li < n {
+					continue
+				}
+				ans = min(ans, s*si+m*mi+l*li)
+			}
+		}
+	}
+
+	outputResult(ans)
 }
 
 // 小さい方の値を取得する
