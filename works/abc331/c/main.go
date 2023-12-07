@@ -46,6 +46,7 @@ func main() {
 	outputResultsForInt(result)
 }
 
+// intのsliceの結果を出力する
 func outputResultsForInt(intSlice []int) {
 	r := make([]string, len(intSlice))
 	for i, v := range intSlice {

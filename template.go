@@ -25,6 +25,31 @@ func main() {
 	defer flush()
 }
 
+// intのsliceの結果を出力する
+func outputResultsForInt(intSlice []int) {
+	r := make([]string, len(intSlice))
+	for i, v := range intSlice {
+		r[i] = strconv.Itoa(v)
+	}
+	outputResult(strings.Join(r, " "))
+}
+
+// intのsliceを降順にソート
+func sortIntSliceDesc(intSlice []int) []int {
+	res := make([]int, len(intSlice))
+	copy(res, intSlice)
+	sort.Sort(sort.Reverse(sort.IntSlice(res)))
+	return res
+}
+
+// intのsliceを昇順にソート
+func sortIntSliceAsc(intSlice []int) []int {
+	res := make([]int, len(intSlice))
+	copy(res, intSlice)
+	sort.Sort(sort.IntSlice(res))
+	return res
+}
+
 // 小さい方の値を取得する
 func min(a, b int) int {
 	if a < b {
