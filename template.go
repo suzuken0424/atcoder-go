@@ -25,6 +25,11 @@ func main() {
 	defer flush()
 }
 
+// 浮動小数点数が整数かどうか
+func isInteger(num float64) bool {
+	return math.Floor(num) == num
+}
+
 // intのsliceの結果を出力する
 func outputResultsForInt(intSlice []int) {
 	r := make([]string, len(intSlice))
@@ -67,8 +72,8 @@ func max(a, b int) int {
 }
 
 // 平方根を取得
-func sqrt(num int) int {
-	return int(math.Sqrt(float64(num)))
+func sqrt(num int) float64 {
+	return math.Sqrt(float64(num))
 }
 
 // intのsliceから最小値を取り出す
