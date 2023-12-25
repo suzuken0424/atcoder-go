@@ -25,6 +25,16 @@ func main() {
 	defer flush()
 }
 
+// 各行の和を計算する
+func sumOfDigits(n int) int {
+	var sum int
+	for n > 0 {
+		sum += n % 10
+		n /= 10
+	}
+	return sum
+}
+
 // 浮動小数点数が整数かどうか
 func isInteger(num float64) bool {
 	return math.Floor(num) == num
